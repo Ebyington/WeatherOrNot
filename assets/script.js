@@ -12,8 +12,12 @@ function getWeather() {
     
     fetch('api.openweathermap.org/data/2.5/weather?q=${searchTxt}&appid=${key}&units=imperial')
       .then(function(response){
-        return(response.json())
-      })
+        return(response.json())})
+      .then(function(data){
+        console.log(data)
+        resultCard.innerHTML = `<p id="temp">Temp:${data.main.temp}</p><p id="wind">Wind conditions:${data.wind.speed}</p><p id="humid">Humidity:${data.main.humidity}</p>`;
+    })
+    
 
     fetch('api.openweathermap.org/data/2.5/forecast?q=${searchTxt}&appid=${key}&units=imperial')
       .then(function(response){
@@ -24,9 +28,9 @@ function getWeather() {
     
 
 
-    list.wind.speed    
-list.main.temp
-    list.main.humidity
+//     list.wind.speed    
+// list.main.temp
+//     list.main.humidity
 
 
 }
